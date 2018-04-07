@@ -11,14 +11,4 @@ module.exports = function(app) {
       res.json(err);
     });
   });
-  app.get("/headlines/:id",function(req,res){
-    db.Headline.findOne({_id:req.params.id})
-    .populate("note")
-    .then(function(dbHeadline){
-      res.json(dbHeadline);
-    })
-    .catch(function(err){
-      res.json(err);
-    });
-  });
 };
